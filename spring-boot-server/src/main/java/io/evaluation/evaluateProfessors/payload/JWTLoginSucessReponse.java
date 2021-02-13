@@ -1,10 +1,13 @@
 package io.evaluation.evaluateProfessors.payload;
 
+import java.util.Collection;
+
 public class JWTLoginSucessReponse {
     private boolean success;
     private String token;
+    
 
-    public JWTLoginSucessReponse(boolean success, String token) {
+    public JWTLoginSucessReponse(boolean success,String token) {
         this.success = success;
         this.token = token;
     }
@@ -24,8 +27,9 @@ public class JWTLoginSucessReponse {
     public void setToken(String token) {
         this.token = token;
     }
+    
 
-    @Override
+	@Override
     public String toString() {
         return "JWTLoginSucessReponse{" +
                 "success=" + success +

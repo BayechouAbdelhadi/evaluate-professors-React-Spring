@@ -1,6 +1,8 @@
 package io.evaluation.evaluateProfessors.security;
 
 import io.evaluation.evaluateProfessors.domain.User;
+import io.evaluation.evaluateProfessors.domain.Role;
+
 import io.jsonwebtoken.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
@@ -11,6 +13,7 @@ import static io.evaluation.evaluateProfessors.security.SecurityConstants.SECRET
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 @Component
 public class JwtTokenProvider {
@@ -29,6 +32,7 @@ public class JwtTokenProvider {
         claims.put("id", (Long.toString(user.getId())));
         claims.put("username", user.getUsername());
         claims.put("fullName", user.getFullName());
+        claims.put("roles",user.getRoles());
 
         return Jwts.builder()
                 .setSubject(userId)
@@ -67,4 +71,5 @@ public class JwtTokenProvider {
 
         return Long.parseLong(id);
     }
+   
 }
