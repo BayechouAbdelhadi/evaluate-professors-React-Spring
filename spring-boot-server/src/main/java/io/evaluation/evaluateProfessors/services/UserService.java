@@ -85,10 +85,8 @@ public class UserService {
     		}
 
     		user.setRoles(roles);
-    		
-    		
             return userRepository.save(user);
-       
+       }
         catch (Exception e){
             throw new UsernameAlreadyExistsException("Username '"+newUser.getUsername()+"' already exists");
         }

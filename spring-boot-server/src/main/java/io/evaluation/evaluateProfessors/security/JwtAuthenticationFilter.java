@@ -7,6 +7,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import io.evaluation.evaluateProfessors.domain.Role;
 import io.evaluation.evaluateProfessors.domain.User;
 import io.evaluation.evaluateProfessors.services.CustomUserDetailsService;
 
@@ -20,6 +21,7 @@ import static io.evaluation.evaluateProfessors.security.SecurityConstants.TOKEN_
 
 import java.io.IOException;
 import java.util.Collections;
+import java.util.Set;
 
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
