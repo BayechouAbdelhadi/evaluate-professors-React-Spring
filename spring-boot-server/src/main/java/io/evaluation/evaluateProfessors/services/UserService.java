@@ -45,9 +45,10 @@ public class UserService {
             // Make sure that password and confirmPassword match
             // We don't persist or show the confirmPassword
             newUser.setConfirmPassword("");
-    		Set<String> strRoles = new HashSet<String>(Arrays.asList(newUser.getRoles().split(",")));
     		Set<Role> roles=new HashSet<Role>();
-    		if (strRoles.isEmpty()) {
+    		Set<String> strRoles = new HashSet<String>(Arrays.asList(newUser.getRoles().split(",")));
+    		if (strRoles.isEmpty()) 
+    		{
     			Role studentRole = roleRepository.findByName(ERole.ROLE_STUDENT)
     					.orElseThrow(() -> new RoleException("Error: Role  Student 1 is not found."));
     			roles.add(studentRole);
